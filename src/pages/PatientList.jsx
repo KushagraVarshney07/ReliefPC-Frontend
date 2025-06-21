@@ -7,7 +7,7 @@ const PatientList = () => {
   const [patients, setPatients] = useState([]);
   const [search, setSearch] = useState("");
   const [genderFilter, setGenderFilter] = useState("");
-  const [sortOrder, setSortOrder] = useState("asc");
+  const [sortOrder, setSortOrder] = useState("desc");
   const [loading, setLoading] = useState(true);
   const [showGenderDropdown, setShowGenderDropdown] = useState(false);
   const [showSortDropdown, setShowSortDropdown] = useState(false);
@@ -20,10 +20,10 @@ const PatientList = () => {
   const sortDropdownRef = useRef(null);
 
   const genderOptions = [
-    { value: "", label: "All Genders", icon: "👥" },
-    { value: "Male", label: "Male", icon: "👨" },
-    { value: "Female", label: "Female", icon: "👩" },
-    { value: "Other", label: "Other", icon: "👤" },
+    { value: "", label: "All Genders ", icon: "👥" },
+    { value: "Male", label: "Male ", icon: "👨" },
+    { value: "Female", label: "Female ", icon: "👩" },
+    { value: "Other", label: "Other ", icon: "👤" },
   ];
 
   const sortOptions = [
@@ -129,17 +129,16 @@ const PatientList = () => {
                 >
                   <span style={styles.dropdownValue}>
                     {genderFilter ? (
-                      <>
+                      <span style={styles.optionLabel}>
+                        {genderOptions.find(opt => opt.value === genderFilter)?.label}{" "}
                         <span style={styles.optionIcon}>
                           {genderOptions.find(opt => opt.value === genderFilter)?.icon}
                         </span>
-                        {genderOptions.find(opt => opt.value === genderFilter)?.label}
-                      </>
+                      </span>
                     ) : (
-                      <>
-                        <span style={styles.optionIcon}>👥</span>
-                        All Genders
-                      </>
+                      <span style={styles.optionLabel}>
+                        All Genders <span style={styles.optionIcon}>👥</span>
+                      </span>
                     )}
                   </span>
                   <span style={styles.dropdownArrow}>
@@ -154,44 +153,37 @@ const PatientList = () => {
                         style={styles.dropdownOption}
                         onClick={() => handleGenderSelect(option.value)}
                       >
-                        <span style={styles.optionIcon}>{option.icon}</span>
-                        <span style={styles.optionLabel}>{option.label}</span>
+                        <span style={styles.optionLabel}>
+                          {option.label} <span style={styles.optionIcon}>{option.icon}</span>
+                        </span>
                       </div>
                     ))}
                   </div>
                 )}
               </div>
               
-              <div style={styles.customDropdown} ref={sortDropdownRef}>
-                <div 
-                  style={styles.dropdownHeader}
-                  onClick={() => setShowSortDropdown(!showSortDropdown)}
-                >
-                  <span style={styles.dropdownValue}>
-                    <span style={styles.optionIcon}>
-                      {sortOptions.find(opt => opt.value === sortOrder)?.icon}
-                    </span>
-                    {sortOptions.find(opt => opt.value === sortOrder)?.label}
-                  </span>
-                  <span style={styles.dropdownArrow}>
-                    {showSortDropdown ? "▲" : "▼"}
-                  </span>
-                </div>
-                {showSortDropdown && (
-                  <div style={styles.dropdownOptions}>
-                    {sortOptions.map((option) => (
-                      <div
-                        key={option.value}
-                        style={styles.dropdownOption}
-                        onClick={() => handleSortSelect(option.value)}
-                      >
-                        <span style={styles.optionIcon}>{option.icon}</span>
-                        <span style={styles.optionLabel}>{option.label}</span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+              <button
+                onClick={() => setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))}
+                style={{
+                  background: "linear-gradient(135deg, #d4af37 0%, #f4d03f 100%)",
+                  border: "none",
+                  borderRadius: "12px",
+                  padding: "14px 20px",
+                  color: "#1a1a1a",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  transition: "all 0.3s ease",
+                  boxShadow: "0 4px 15px rgba(212, 175, 55, 0.2)",
+                  flexShrink: 0,
+                  whiteSpace: "nowrap",
+                }}
+              >
+                Visit Date {sortOrder === "desc" ? "↓" : "↑"}
+              </button>
               
               <button 
                 onClick={() => navigate("/add-patient")}
@@ -234,7 +226,16 @@ const PatientList = () => {
                   <thead>
                     <tr style={styles.tableHeader}>
                       <th style={styles.tableHeaderCell}>Patient Name</th>
-                      <th style={styles.tableHeaderCell}>Last Visit Date</th>
+                      <th
+                        style={{ ...styles.tableHeaderCell, cursor: "pointer", userSelect: "none" }}
+                        onClick={() => setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))}
+                        title="Sort by Visit Date"
+                      >
+                        Last Visit Date{" "}
+                        <span style={{ fontSize: "14px" }}>
+                          {sortOrder === "desc" ? "↓" : "↑"}
+                        </span>
+                      </th>
                       <th style={styles.tableHeaderCell}>Total Visits</th>
                       <th style={styles.tableHeaderCell}>Condition</th>
                       <th style={styles.tableHeaderCell}>Gender</th>
