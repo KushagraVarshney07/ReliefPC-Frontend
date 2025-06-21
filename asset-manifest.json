@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/ReliefPC-Frontend/static/css/main.74010403.css",
-    "main.js": "/ReliefPC-Frontend/static/js/main.a94fb196.js",
+    "main.js": "/ReliefPC-Frontend/static/js/main.e5e58c5e.js",
     "static/media/business-card-back.png": "/ReliefPC-Frontend/static/media/business-card-back.faaef001acaa25913b4b.png",
     "static/media/logo1.png": "/ReliefPC-Frontend/static/media/logo1.0dd1ef55a0d411d48b95.png",
     "static/media/business-card-front.png": "/ReliefPC-Frontend/static/media/business-card-front.0f72da4d7a1afdd6a94b.png",
     "static/media/white logo.png": "/ReliefPC-Frontend/static/media/white logo.851c72bcc039e86b4a26.png",
     "index.html": "/ReliefPC-Frontend/index.html",
     "main.74010403.css.map": "/ReliefPC-Frontend/static/css/main.74010403.css.map",
-    "main.a94fb196.js.map": "/ReliefPC-Frontend/static/js/main.a94fb196.js.map"
+    "main.e5e58c5e.js.map": "/ReliefPC-Frontend/static/js/main.e5e58c5e.js.map"
   },
   "entrypoints": [
     "static/css/main.74010403.css",
-    "static/js/main.a94fb196.js"
+    "static/js/main.e5e58c5e.js"
   ]
 }
