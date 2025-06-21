@@ -1,0 +1,91 @@
+.business-card-container {
+  width: 320px;
+  height: 200px;
+  margin: 60px auto;
+  perspective: 1200px;
+  pointer-events: none !important; /* Prevents all mouse interactions */
+  user-select: none !important; /* Prevents text selection */
+  -webkit-user-select: none !important; /* For Safari */
+  -moz-user-select: none !important; /* For Firefox */
+  -ms-user-select: none !important; /* For IE/Edge */
+}
+
+.business-card {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotate3D 10s infinite linear;
+  pointer-events: none !important; /* Prevents all mouse interactions */
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  pointer-events: none !important; /* Prevents all mouse interactions */
+}
+
+.front img,
+.back img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none !important; /* Prevents all mouse interactions */
+  user-select: none !important; /* Prevents image selection */
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
+@keyframes rotate3D {
+  0% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
+/* Additional CSS to ensure no interactions */
+.business-card-container * {
+  pointer-events: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  cursor: default !important;
+}
+
+/* Prevent any hover effects or focus states */
+.business-card-container:hover,
+.business-card:hover,
+.card-face:hover,
+.business-card-container:focus,
+.business-card:focus,
+.card-face:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Prevent any drag and drop */
+.business-card-container,
+.business-card,
+.card-face,
+.front img,
+.back img {
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
+}

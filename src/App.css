@@ -1,0 +1,166 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0a0a0a;
+  color: #ffffff;
+}
+
+/* Navbar */
+.navbar {
+  background: linear-gradient(90deg, #000000, #d4af37);
+  padding: 10px;
+  display: flex;
+  gap: 15px;
+  color: white;
+}
+.navbar a,
+.navbar button {
+  color: white;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* General Container */
+.centered-container,
+.details-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* Login specific styles - these will be overridden by inline styles */
+.login-container {
+  background: #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.login-form label {
+  display: block;
+  margin: 15px 0 5px;
+  color: #d4af37;
+}
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: #ffffff;
+}
+
+/* Forms */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(135deg, #337dd4 0%, #000000 100%);
+  color: #1a1a1a;
+  padding: 10px 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+}
+button + button {
+  margin-left: 8px;
+}
+
+/* Error Text */
+.error {
+  color: #ff6b6b;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+/* Table & List */
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.patient-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.patient-table th,
+.patient-table td {
+  padding: 12px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+  text-align: left;
+}
+.patient-table th {
+  background: linear-gradient(135deg, #d4af37 0%, #f4d03f 100%);
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+/* Patient Card */
+.patient-card {
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  border: 1px solid rgba(212, 175, 55, 0.1);
+}
+.patient-card p {
+  margin: 10px 0;
+  color: #ffffff;
+}
+
+/* Add hover effects for interactive elements */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/* Add some animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-container,
+.centered-container,
+.details-container {
+  animation: fadeIn 0.6s ease-out;
+}
