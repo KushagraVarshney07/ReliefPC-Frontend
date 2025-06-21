@@ -19,7 +19,7 @@ const ProtectedRoute = ({ children }) => {
 
 const App = () => {
   return (
-    <Router>
+    <Router basename="/ReliefPC-Frontend"> {/* 👈 This is the important change */}
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/login" element={<Login />} />
